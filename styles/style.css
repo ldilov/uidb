@@ -41,7 +41,7 @@ nav li{
 
 }
 
-a,a:visited,a:hover,a:active{
+nav a, nav a:visited, nav a:hover, nav a:active{
   -webkit-backface-visibility:hidden;
           backface-visibility:hidden;
 	position:relative;
@@ -50,9 +50,27 @@ a,a:visited,a:hover,a:active{
 	color:#0b9559;
 
 }
-a:hover{
+nav a:hover{
 	color:#0b9559;
 }
+
+table a{
+	-webkit-backface-visibility:hidden;
+		backface-visibility:hidden;
+	position:relative;
+    transition:color 1s, font-size 1s;
+	-webkit-transition: color 1s, font-size 1s;
+	text-decoration:none;
+	color:white;
+	font-size: 100%;
+}
+
+table a:hover{
+	color:yellow;
+	text-decoration:none;
+	font-size: 130%;
+}
+
 a.before:before,a.after:after{
   content: "";
   transition:0.5s all ease;
