@@ -1,3 +1,7 @@
+<?php
+require_once('functions.php');
+logged_in();
+?>
 <html>
 <head> 
 	<title> УБИ - Унивеситетска информационна база </title>
@@ -6,7 +10,10 @@
 	<link href="styles/calendar.css" rel="stylesheet" type="text/css">
 	<link href="styles/style.css" rel="stylesheet" type="text/css">
 	<link href="styles/zsocial.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="styles/upload.css">
+	<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous" >
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="js/calendar.js"></script>
 	<script src="jquery-3.1.1.min.js"></script>
 	

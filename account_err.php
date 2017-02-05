@@ -77,6 +77,31 @@
             <input readonly onfocus="this.removeAttribute('readonly');" name="email" type="email"required autocomplete="off"/>
           </div>
           
+		  <div class="field-wrap" id="hideSkype">
+            <label>
+              Скайп
+            </label>
+            <input readonly onfocus="this.removeAttribute('readonly');" name="skype" type="text"/>
+          </div>
+		  
+		  <div class="field-wrap" id="hideSchool">
+            <label>
+              Предишно учебно заведение
+            </label>
+            <input readonly onfocus="this.removeAttribute('readonly');" name="school" type="text"/>
+          </div>
+		  <div class="field-wrap">
+            <label>
+              Град<span class="req">*</span>
+            </label>
+            <input readonly onfocus="this.removeAttribute('readonly');" name="city" type="text" required/>
+          </div>
+		  <div class="field-wrap">
+            <label>
+              Телефон<span class="req">*</span>
+            </label>
+            <input readonly onfocus="this.removeAttribute('readonly');" name="phone" type="text" required/>
+          </div>
           <div class="field-wrap">
             <label>
               Парола<span class="req">*</span>

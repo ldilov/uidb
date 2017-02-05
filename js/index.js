@@ -45,8 +45,18 @@ $('.tab a').on('click blur focus', function (e) {
 });
 
 function showDiv(elem){
-   if(elem.value == 1)
-      document.getElementById('target').style.display = "inherit";
-	  document.getElementById('hideName').style.display = "none";
-	  document.getElementById('hideProgram').style.display = "none";
+	   if (document.getElementById('hideName').style.display === 'none'){
+			document.getElementById('target').style.display = "none";
+			document.getElementById('hideName').style.display = "block";
+			document.getElementById('hideProgram').style.display = "block";
+			document.getElementById('hideSchool').style.display = "block";
+			document.getElementById('hideSkype').style.display = "block";
+	   } else {
+		  document.getElementById('target').style.display = "block";
+		  document.getElementById('hideName').style.display = "none";
+		  document.getElementById('hideProgram').style.display = "none";
+		  document.getElementById('hideSchool').style.display = "none";
+		  document.getElementById('hideSkype').style.display = "none";
+	   }
+   
 }

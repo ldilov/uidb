@@ -135,6 +135,8 @@ nav ul {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+	vertical-align: middle;
+	margin-top: 7%;
 }
 
 .hvr-underline-from-center {
@@ -434,6 +436,10 @@ table{
 	text-align: center;
 	vertical-align: middle;
 }
+.tg  img{
+	height:16px;
+	width: 16px;
+}
 .tg th{
 	font-family:Open sans, sans-serif;
 	font-size:14px;
@@ -469,4 +475,37 @@ table{
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
 	}
+}
+
+hr.message-inner-separator
+{
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }
