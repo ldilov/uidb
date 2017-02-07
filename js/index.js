@@ -60,3 +60,7 @@ function showDiv(elem){
 	   }
    
 }
+
+function openInfo(elem){
+	window.open(elem.href, "targetWindow", "toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=255, height=255");
+}

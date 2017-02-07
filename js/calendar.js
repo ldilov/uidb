@@ -1,14 +1,17 @@
-$.getScript('http://arshaw.com/js/fullcalendar-1.6.4/fullcalendar/fullcalendar.min.js',function(){
-  
+$.getScript(url + '/js/fullcalendar.js',function(){
+
   var event_arr = [];
    $.each(arr, function(index, value){
 	  var date = toDate(value);
 	  var d = date.getDate();
 	  var m = date.getMonth();
 	  var y = date.getFullYear();
+	  var h = date.getHours();
       event_arr.push({
 		  title: index, 
-		  start: new Date(y, m , d)
+		  start: new Date(y, m , d, h),
+		  end: new Date(y, m, d, h +3),
+		  allDay: false
 	  });
     });
 

@@ -16,4 +16,7 @@ if (!$link) {
 // Данни за университета
 $university_name = "СУ \"Св.св. Климент Охридски\"";
 $university_logo = "images/login_logo.gif";
+
+//Настройки на сайта
+$url = "http://127.0.0.1";
 ?>

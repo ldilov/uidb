@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('config.php');
+require_once('functions.php');
 
 //Филтрираме базата подадените параметри
 $email = htmlentities($link->real_escape_string($_POST['email']));
@@ -24,6 +25,7 @@ if(md5($password) == $account['password']) {
 	$_SESSION['logged_in'] = 1;
 	$_SESSION['id'] = $_POST['type'] == 0 ? $account['fnumber'] : $account['id'];
 	$_SESSION['program'] = $_POST['type'] == 0 ? $account['program'] : null;
+	$_SESSION['program_id'] = $account['program'];
 	$_SESSION['type'] = $_POST['type'];
 	if(isset($account['degree'])){
 		$_SESSION['degree'] = $account['degree'];

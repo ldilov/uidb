@@ -103,6 +103,7 @@ a.before:hover:before,a.after:hover:after{
 
 a {
 	color: inherit;
+	text-decoration: none;
 }
 
 nav li a {
@@ -436,6 +437,7 @@ body, html {
 table{
 	width: 100%;
 	table-layout: fixed;
+	margin-top: 20px;
 }
 .tg  {
 	border-collapse:collapse;
@@ -471,12 +473,13 @@ table{
 	vertical-align: middle;
 }
 .tg .tg-mvlx{
-	background-color:#5db688;
+	background-color:#1eb98f;
 	vertical-align:top;
 }
 .tg .tg-3we0{
 	background-color:#ffffff;
 	vertical-align:top;
+	text-transform: uppercase;
 }
 .tg .tg-dfop{
 	background-color:#00a651;
@@ -526,4 +529,100 @@ hr.message-inner-separator
     background: white;
     cursor: inherit;
     display: block;
+}
+
+#dropdown-container{
+    font-family: Palatino Linotype;
+	width:40%;
+	text-align: center;
+	margin:0 auto;
+}
+#dropdown{
+    padding:5px;
+    cursor:pointer;
+    font-size: 15px;
+    border: 1px solid rgb(169, 169, 169);
+    -moz-appearance: none;
+	background-color: #1eb98f;
+	color:white;
+}
+.down-arrow-icon{    
+    padding-left: 5px;
+	float: right;
+}
+#dropdown-list{
+    display:none;
+    width: 40%; 
+    padding:0px;
+    margin:0px;
+	z-index: 9999;
+	position:absolute;
+	color: white;
+}
+#dropdown-container:hover ul#dropdown-list{
+    display:block;
+	z-index: 9999;
+}
+#dropdown-container > ul{
+    padding:0px;
+    list-style: none;
+	z-index: 9999;
+	position:absolute;
+	background-color: #1eb98f;
+	color: white;
+	width:37.3%;
+}
+#dropdown-container ul li{
+    width: 100%;
+	color: white;
+	height: 2.2em;
+}
+#dropdown-container ul li:hover{
+    background-color: #00a651;
+    cursor:pointer;
+	color: white;
+}
+
+#dropdown-container ul li:hover input[type="submit"]{
+    background-color: #00a651;
+    cursor:pointer;
+	color: white;
+}
+
+#dropdown-container ul li a{  
+    padding-left: 10px;
+    text-decoration:none;
+    color: black;
+	z-index: 9999;
+	color: white;
+}
+	 
+input[type="submit"]
+{
+	-webkit-appearance: none;
+	appearance: none;
+	border:none;
+	background-color: #1eb98f;
+	width: 100%;
+	height: 100%;
+}
+
+input[type="submit"]:focus
+{
+	-webkit-appearance: none;
+	appearance: none;
+	border:none;
+	background-color: #1eb98f;
+	width: 100%;
+	height: 100%;
+}
+
+
+input[type="submit"]:hover
+{
+	background-color: #00a651;
+}
+
+form{
+	margin: 0px 0px 0px;
 }

@@ -10,12 +10,11 @@ logged_in();
 	<link href="styles/calendar.css" rel="stylesheet" type="text/css">
 	<link href="styles/style.css" rel="stylesheet" type="text/css">
 	<link href="styles/zsocial.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="styles/upload.css">
 	<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous" >
+	<link rel="stylesheet" href="styles/font-awesome.min.css">
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src="js/calendar.js"></script>
-	<script src="jquery-3.1.1.min.js"></script>
+	<script src="js/jquery-3.1.1.js"></script>
 	
 </head>
 <body>
@@ -100,14 +99,14 @@ logged_in();
 		<div class="icon" data-icon="."></div>
 		<div class="text">
 			<h4>Дати за изпити</h4>
-			<div>Ако желаете да проверите датите за изпитите от предстоящата ви сесия, можете да влезете <a href="/index.php?p=exam_table">ТУК</a></div>
+			<div>Ако желаете да проверите датите за изпитите от предстоящата ви сесия, можете да влезете <a href="/index.php">ТУК</a></div>
 		</div>
 	</li>
 	<li>
-		<div class="icon" data-icon="g"></div>
+		<div class="icon" data-icon="å"></div>
 		<div class="text">
-			<h4>Github</h4>
-			<div>Управлението на тази система се извършва благодарение на Github. Системата е open-source и е достъпна за всички, които се интересуват от нея. Ако желаете да я свалите или да помогнете в развитието и, натиснете <a href="http://github.com/ldilov/">ТУК</a></div>
+			<h4>Записани предмети</h4>
+			<div>В тази секция можете да видите всички предмети, за които сте се записали. Това са както предметите, които сте взели, така и тези, които все още не сте взели. Моля натиснете <a href="/index.php?p=participate">ТУК</a></div>
 		</div>
 	</li>
 	</ul>
@@ -133,10 +132,10 @@ logged_in();
 						<span class="follow">Последвайте ни в Twitter</span>
 					</span>
 				</a>
-				<a href="#" class="rss">
-					<span data-icon="R" class="icon"></span>
+				<a href="https://github.com/ldilov/uidb" class="rss">
+					<span data-icon="g" class="icon"></span>
 					<span class="info">
-						<span class="follow">Subscribe RSS</span>
+						<span class="follow">Посетете Github</span>
 					</span>
 				</a>
 			</div>

@@ -59,7 +59,7 @@ if($_SESSION['type'] == 0) {
 
 <?php
  } else {
-	 $query = "SELECT courses.name as subject, exams.faculty, exams.room, exams.date, exams.hour, title, firstName, lastName, programs.name as program, courses.credits FROM exams
+	 $query = "SELECT courses.name as subject, exams.faculty, exams.room, exams.date, EXTRACT(HOUR from exams.hour) as hours, EXTRACT(MINUTE from exams.hour) as minutes, title, firstName, lastName, programs.name as program, courses.credits FROM exams
 																										JOIN teachers on exams.teacher_id = teachers.id
 																										JOIN courses on exams.course_id = courses.id
 																										JOIN programs on programs.id = exams.program_id
