@@ -1,12 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-.container {
-	text-align:center;
-}
-
 .page {
 	color: #0b9559;
 	text-transform: uppercase;
+}
+
+textarea {
+    resize: none;
+	height: 15%;
 }
 
 .embed {
@@ -52,6 +53,10 @@ nav a, nav a:visited, nav a:hover, nav a:active{
 }
 nav a:hover{
 	color:#0b9559;
+}
+
+table{
+	margin-bottom: 20px;
 }
 
 table a{
@@ -429,7 +434,7 @@ body, html {
 	width: 95%;
 	margin-right: 3%;
 	margin-left: 3%;
-	
+	text-align: center;
 }
 
 /* Таблици

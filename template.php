@@ -11,6 +11,7 @@ logged_in();
 	<link href="styles/style.css" rel="stylesheet" type="text/css">
 	<link href="styles/zsocial.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous" >
+	<link href="styles/staff.css" rel="stylesheet" type="text/css">	
 	<link rel="stylesheet" href="styles/font-awesome.min.css">
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -20,7 +21,7 @@ logged_in();
 <body>
 <div class="header">
 	<div class="logo">
-		<img src="images/logo.png">
+		<img src="<?php echo $university_logo; ?>">
 	</div>
 	<nav>
 		<ul>
@@ -113,10 +114,13 @@ logged_in();
 	<div class="bar">
 		<div class="bar-wrap">
 			<ul class="links">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">License</a></li>
+				<li><a href="index.php">Начало</a></li>
+				<?php if($_SESSION['type'] == 0){ ?>
 				<li><a href="#">Взети изпити</a></li>
-				<li><a href="#">Преподаватели</a></li>
+				<li><a href="index.php?p=staff">Преподаватели</a></li>
+				<?php } else { ?>
+				<li><a href="index.php?p=students">Студенти</a></li>
+				<?php } ?>
 				<li><a href="#">За нас</a></li>
 			</ul>
 			<div class="social">

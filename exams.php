@@ -35,12 +35,24 @@ if($_SESSION['type'] == 0) {
 														  JOIN participate on exams.course_id = participate.course_id
 														  JOIN programs on programs.id = exams.program_id
 														  WHERE completed = 0 AND exams.program_id = ".$_SESSION['program'] . " AND student_id = " . $_SESSION['id'];
-	if(!$result = $link->query($query)){
-		echo "<div class=\"alert alert-info fade in\"> Няма налични изпити </div>";
+		try {
+				$data = query($query);
+			} catch (Exception $e) {
+	?>
+			<div class="alert alert-danger">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+					 ×
+				</button>
+				<span class="glyphicon glyphicon-hand-right"></span> <strong>Възникна грешка:</strong>
+				<hr class="message-inner-separator">
+				<p><?php echo $e->getMessage(); ?></p>
+			</div>
+	<?php } 
+	if($data->num_rows === 0){
+		echo "<div class=\"alert alert-info fade in\"> Към момента нямате предстоящи изпити за сесията. </div>";
 		echo "</table>";
-		exit();
 	}
-	while($row = $result->fetch_assoc()){
+	while($row = $data->fetch_assoc()){
 	?>
 	  <tr>
 		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['faculty']; ?></td>

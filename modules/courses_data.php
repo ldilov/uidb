@@ -26,15 +26,51 @@ if(isset($_GET['p'])){
 		<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 		<?php 
 		if($_SESSION['type'] == 0){
-			echo "<input type=\"hidden\" name=\"op\" value=\"add\">";
-			echo "<td class=". $class[$iter] ."><button type=\"submit\" class=\"btn btn-xs btn-default\"><span class=\"glyphicon glyphicon-edit\"></span> Запиши ме</button></td>";
+			if(campaignAvailable()){
+				echo "<input type=\"hidden\" name=\"op\" value=\"add\">";
+				echo "<td class=". $class[$iter] ."><button type=\"submit\" class=\"btn btn-xs btn-default\"><span class=\"glyphicon glyphicon-edit\"></span> Запиши ме</button></td>";
+			} else {
+				echo "<td class=". $class[$iter] ."><span class=\"glyphicon glyphicon-minus\"></span></td>";
+			}
 		} else {
 			echo "<input type=\"hidden\" name=\"op\" value=\"edit\">";
 			echo "<td class=". $class[$iter] ."><button type=\"submit\" class=\"btn btn-xs btn-default\"><span class=\"glyphicon glyphicon-edit\"></span> Редактирай</button></td>";
 		}
 		?>
+		</form>
 		</tr>
 <?php
+	} elseif($_GET['p'] == "participate"){ ?>
+		<tr>
+		<form method="post" action="/index.php?p=participate">
+		<td class="<?php echo $class[$iter]; ?>">
+			<a href="javascript: void(0);" id="info<?php echo $index; ?>">
+				<?php echo $row['name']; ?>
+			</a>
+			<script> 
+				document.getElementById("info<?php echo $index; ?>").addEventListener ("click", function(){
+					window.open("modules/course_info.php?id=<?php echo $row['id']; ?>", "Информация", "toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, titlebar=no, width=550, height=250");
+				});
+			</script>
+		</td>
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['cat']; ?></td>
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['type'] == 0 ? "Задължителна" : "Избираема"; ?></td>
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['title']." ".$row['firstName']. " ".$row['lastName']; ?></td>
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['credits']; ?> <img src="../images/icons/medal.png" /></td>
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['mark']; ?></td>		
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['completed'] == 0 ? "<span style=\"color: red\">Не</span>" : "Да";?></td>
+		<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+		<?php 
+		echo "<input type=\"hidden\" name=\"op\" value=\"del\">";
+		if($row['type'] != 0 && campaignAvailable()){
+			echo "<td class=". $class[$iter] ."><button type=\"submit\" class=\"btn btn-xs btn-default\"><span class=\"	glyphicon glyphicon-remove\"></span> Отпиши ме</button></td>";
+		} else {
+			echo "<td class=". $class[$iter] ."><span class=\"glyphicon glyphicon-minus\"></span></td>";
+		}
+		?>
+		</form>
+		</tr>	
+	<?php
 	}
 }
 ?>

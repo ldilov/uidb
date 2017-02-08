@@ -39,6 +39,15 @@ if(isset($error)){ ?>
             <p><?php echo $success; ?></p>
         </div>
 <?php	
+}elseif (isset($warning)){ ?>
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                ×</button>
+            <span class="glyphicon glyphicon-record"></span> <strong>Внимание:</strong>
+            <hr class="message-inner-separator">
+            <p><?php echo $warning;?></p>
+        </div>
+<?php	
 }
 ?>
 
@@ -123,7 +132,7 @@ if(isset($error)){ ?>
 				</button>
 				<span class="glyphicon glyphicon-hand-right"></span> <strong>Възникна грешка:</strong>
 				<hr class="message-inner-separator">
-				<p><?php echo $e->getMessage(); echo $link->error; ?></p>
+				<p><?php echo $e->getMessage(); header("Refresh:5; url=index.php"); exit(); ?></p>
 			</div>
 	<?php } 
 			if($data->num_rows === 0){

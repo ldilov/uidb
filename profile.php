@@ -25,6 +25,13 @@ if(isset($error)){ ?>
         </div>
 <?php	
 }
+$query = "SELECT credits FROM courses JOIN participate on courses.id = participate.course_id WHERE student_id = ".$_SESSION['id']. " AND completed > 0";
+$credits = 0;
+if($result = $link->query($query)){
+	while($row = $result->fetch_assoc()){
+		$credits += $row['credits'];
+	}
+}
 ?>
 <div class="container">
   <div class="row">
@@ -48,7 +55,7 @@ if(isset($error)){ ?>
       </div>
     </div>
     <!-- edit form column -->
-    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="margin-bottom: 20px;">
         <div class="form-group">
           <label class="col-lg-3 control-label">Име:</label>
           <div class="col-lg-8">
@@ -79,15 +86,6 @@ if(isset($error)){ ?>
 		<div class="form-group">
           <label class="col-lg-3 control-label">Кредити:</label>
           <div class="col-lg-8">
-		  	<?php 
-				$query = "SELECT credits FROM courses JOIN participate on courses.id = participate.course_id WHERE student_id = ".$_SESSION['id']. "and completed > 0";
-				$credits = 0;
-				if($result = $link->query($query)){
-					while($row = $result->fetch_assoc()){
-						$credits += $row['credits'];
-					}
-				}
-			?> 
             <p> <?php echo $credits; ?> <img src="images/icons/medal.png" /></p>
           </div>
         </div>
@@ -103,6 +101,28 @@ if(isset($error)){ ?>
             <input class="form-control" name="skype"value="<?php echo $row['skype']; ?>" type="text">
           </div>
         </div>
+		<?php } ?>
+		<?php if($_SESSION['type'] > 0) { ?>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Facebook:</label>
+          <div class="col-lg-8">
+             <input class="form-control" name="facebook "value="<?php echo $row['facebook']; ?>" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Twitter:</label>
+          <div class="col-lg-8">
+            <input class="form-control" name="twitter "value="<?php echo $row['twitter']; ?>" type="text">
+          </div>
+        </div>	
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Описание:</label>
+          <div class="col-lg-8">
+		     <script type="text/javascript" src="plugins/ckeditor/ckeditor.js"></script>
+             <textarea name="description" style="width: 100%;" maxlength="255" spellcheck="true" lang="bg" id="editor"><?php echo $row['description']; ?></textarea>
+			 <script type="text/javascript"> CKEDITOR.replace( 'editor' );</script>
+          </div>
+        </div>			
 		<?php } ?>
         <div class="form-group">
           <label class="col-lg-3 control-label">Град:</label>
@@ -120,6 +140,7 @@ if(isset($error)){ ?>
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
+			<input type="hidden" name="permitted" value="true">
             <button type="submit" class="btn btn-success">Запази</button>
             <span></span>
             <button type="reset" class="btn btn-info">Отказ</button>

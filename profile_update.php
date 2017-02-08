@@ -2,8 +2,10 @@
 require_once('functions.php');
 session_start();
 //Логнати ли сме
-logged_in();
+if(isset($_POST['permitted']) && $_POST['permitted'] == "true")
+	define('Permitted', TRUE);
 
+logged_in();
 if(isset($_FILES['avatar']) && $_FILES['avatar']['size'] > 0){
 	$dir = "images/avatars/";
 	$file = $dir . basename($_FILES["avatar"]["name"]);
@@ -74,6 +76,42 @@ if(isset($_POST['skype'])){
 			$error = 'Съобщение: '.  $e->getMessage(). "\n";
 		}	
 	$success[] = "Скайпът ви успешно е обновен!";
+}
+
+if(isset($_POST['facebook'])){
+	$facebook = htmlentities($link->real_escape_string($_POST['facebook']));
+		try {
+			if(!update_user_info(["facebook" => "$facebook"], $_SESSION['type'])){
+				$error = "Възникна грешка при промяна на записа в базата данни!";
+		}
+		} catch (Exception $e) {
+			$error = 'Съобщение: '.  $e->getMessage(). "\n";
+		}	
+	$success[] = "Фейсбукът ви успешно е обновен!";
+}
+
+if(isset($_POST['twitter'])){
+	$tw = htmlentities($link->real_escape_string($_POST['twitter']));
+		try {
+			if(!update_user_info(["twitter" => "$tw"], $_SESSION['type'])){
+				$error = "Възникна грешка при промяна на записа в базата данни!";
+		}
+		} catch (Exception $e) {
+			$error = 'Съобщение: '.  $e->getMessage(). "\n";
+		}	
+	$success[] = "Twitter-ът ви успешно е обновен!";
+}
+
+if(isset($_POST['description'])){
+	$ds = $_POST['description'];
+		try {
+			if(!update_user_info(["description" => "$ds"], $_SESSION['type'])){
+				$error = "Възникна грешка при промяна на записа в базата данни!";
+		}
+		} catch (Exception $e) {
+			$error = 'Съобщение: '.  $e->getMessage(). "\n";
+		}	
+	$success[] = "Описанието ви успешно е обновен!";
 }
 
 if(isset($_POST['city'])){

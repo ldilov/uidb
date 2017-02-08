@@ -27,7 +27,14 @@ if(isset($_GET['p'])){
 			$page_title = "Профил";
 			$tpl = "profile.php";
 			break;
+		case 'staff':
+			$page_title = "Преподаватели";
+			$tpl = "staff.php";
+			break;
 		case 'courses':
+			if(!campaignAvailable()){
+				$warning = "Кампанията за записване/отписване на избираеми дисциплини не е налична. Това означава, че не можете да записвате и отписвате избираеми дисциплини!";
+			}
 			if(isset($_POST['id'])){
 				$_SESSION['c_id'] = $_POST['id'];
 				$_SESSION['op'] = $_POST['op'];
