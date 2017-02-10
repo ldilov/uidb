@@ -2,6 +2,9 @@
 session_start();
 include ('config.php');
 include('functions.php');
+if(!file_exists("sys.lock")) {
+	header('Location: /install/install.php');
+}
 define('Permitted', TRUE);
 
 if(isset($_GET['loginFailed']) && isset($_SESSION['loginFailed'])){
