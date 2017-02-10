@@ -46,7 +46,7 @@ nav a, nav a:visited, nav a:hover, nav a:active{
   -webkit-backface-visibility:hidden;
           backface-visibility:hidden;
 	position:relative;
-  transition:0.5s color ease;
+	transition:0.5s color ease;
 	text-decoration:none;
 	color:#0b9559;
 
@@ -99,6 +99,7 @@ a.before:before,a.after:after{
 a.third:after,a.sixth:before,a.sixth:after{
   left:50%;
   -webkit-transform:translateX(-50%);
+  -moz-transform:translateX(-50%);
           transform:translateX(-50%);
 }
 
@@ -477,6 +478,16 @@ table{
 	text-align: center;
 	vertical-align: middle;
 }
+
+td input{
+	color:black;
+}
+
+td input:focus{
+	color:black;
+	box-shadow: 0px 0px 5px #fff;
+}
+
 .tg .tg-mvlx{
 	background-color:#1eb98f;
 	vertical-align:top;
