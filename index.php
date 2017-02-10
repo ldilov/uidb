@@ -61,7 +61,7 @@ if(isset($_GET['p'])){
 			$tpl = "participate.php";
 			break;
 		case 'passed':
-			$page_title = "Записани избираеми/задължителни дисциплини";
+			$page_title = "Взети изпити";
 			$tpl = "passed_exams.php";
 			break;
 		default:

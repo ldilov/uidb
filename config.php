@@ -1,9 +1,9 @@
 <?php
 //Данни за свързване с БД
-$host = 'localhost';
-$db_user = 'root';
-$db_pass = '';
-$db = 'website';
+$host = 'localhost';   //сървър
+$db_user = 'root';	  // потребител
+$db_pass = ''; 		// парола
+$db = 'website';	// име на БД
 
 //Свързване с БД
 $link = new mysqli($host, $db_user, $db_pass, $db);
@@ -14,8 +14,8 @@ if (!$link) {
     die("Съобщение: " . mysqli_connect_errno());
 }
 // Данни за университета
-$university_name = "СУ \"Св.св. Климент Охридски\"";
-$university_logo = "images/login_logo.gif";
+$university_name = "СУ \"Св.св. Климент Охридски\"";  // Име на университета
+$university_logo = "images/login_logo.gif";  //Лого на университета
 $campaign_end = 12; // Крайна дата за отписване на избираеми дисциплини - кампанията за записване започва в месеца, в който започва семесстъра
 $first_sem = 10; // Месец на начало на първи сем.
 $second_sem = 2; // Месец на начало на втори семестър
@@ -27,5 +27,5 @@ $phone = "(+359 2) 9308 200";
 $mail = "support@uni-sofia.bg";
 
 //Настройки на сайта
-$url = "http://127.0.0.1";
+$url = "http://127.0.0.1"; //адрес на сайта
 ?>
