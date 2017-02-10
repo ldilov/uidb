@@ -5,7 +5,7 @@ session_start();
 if(isset($_POST['permitted']) && $_POST['permitted'] == "true")
 	define('Permitted', TRUE);
 
-logged_in();
+verify();
 if(isset($_FILES['avatar']) && $_FILES['avatar']['size'] > 0){
 	$dir = "images/avatars/";
 	$file = $dir . basename($_FILES["avatar"]["name"]);

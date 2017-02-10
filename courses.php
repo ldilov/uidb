@@ -1,15 +1,15 @@
 <?php
 require_once('functions.php');
-logged_in();
+verify();
 
 if(isset($_SESSION['c_id'])){
 	switch($_SESSION['op']){
 		case 'add':
-			include "modules\courses_add.php";
+		require_once "modules\courses_add.php";
 		break;
 
 		case 'edit':
-			include "modules\courses_edit.php";
+		require_once "modules\courses_edit.php";
 		break;
 		
 		case 'filter':

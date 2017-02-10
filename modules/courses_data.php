@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__."/../functions.php");
-logged_in("..");
+verify("..");
 if(isset($_GET['p'])){
 	if($_GET['p'] == "courses"){
 ?>

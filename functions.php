@@ -2,9 +2,19 @@
 require_once(__DIR__.'/config.php');
 $error_msg = "Възникна грешка при извличането на данни от БД. Ще Ви пренасочим към главната страница след 5 секунди.";
 
-function logged_in($dir= "."){
-	if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] != 1 || !defined('Permitted')){
+function verify($dir= ".", $cond = true){
+	if(!isset($_SESSION['verify']) || $_SESSION['verify'] != 1 || !defined('Permitted') || !$cond){
 		header("location:$dir/index.php");
+	}
+}
+
+function update_table($table, array $params, $cond){
+	global $link;
+	foreach($params as $param => $value){
+		$result = $link->query("UPDATE $table SET $param = '$value' WHERE $cond");
+		if($link->affected_rows < 0 || !$result){
+			throw new Exception("Промяната беше неуспешна. Грешка: ". $link->error);
+		}
 	}
 }
 
@@ -44,18 +54,6 @@ function fetch_table_rows($table, $cond = true){
 function query($query, $cond = true, $op = "AND"){
 	global $link, $error_msg;
 	if($result = $link->query("$query $op $cond")){
-		return $result;
-	} else {
-		throw new Exception($error_msg);
-	}		
-}
-
-
-function fetch_join_table_rows($table, $join, $join_pk, $primary_key = 'id',  $cond = true){
-	global $link, $error_msg;
-	$table = $link->real_escape_string($table);
-	$query = "SELECT * FROM $table JOIN $join on $table.$primary_key = $join_pk WHERE $cond";
-	if($result = $link->query($query)){
 		return $result;
 	} else {
 		throw new Exception($error_msg);

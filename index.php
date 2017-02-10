@@ -10,7 +10,7 @@ if(isset($_GET['loginFailed']) && isset($_SESSION['loginFailed'])){
 	unset($_SESSION['loginFailed']);
 	exit();
 }
-if(!isset($_SESSION['logged_in'])){
+if(!isset($_SESSION['verify'])){
 	include('account_err.php');
 	exit();
 }
@@ -20,7 +20,11 @@ if(isset($_GET['p'])){
 			header("location:logout.php");
 			break;
 		case 'exams':
-			$page_title = "Списък от невзети изпити";
+			if($_SESSION['type'] == 0)
+				$page_title = "Списък от невзети изпити";
+			else
+				$page_title = "Вашите изпити";
+			
 			$tpl = "exams.php";
 			break;
 		case 'profile':
@@ -30,6 +34,10 @@ if(isset($_GET['p'])){
 		case 'staff':
 			$page_title = "Преподаватели";
 			$tpl = "staff.php";
+			break;
+		case 'students':
+			$page_title = "Моите студенти";
+			$tpl = "students.php";
 			break;
 		case 'courses':
 			if(!campaignAvailable()){
@@ -51,6 +59,10 @@ if(isset($_GET['p'])){
 		case 'participate':
 			$page_title = "Записани избираеми/задължителни дисциплини";
 			$tpl = "participate.php";
+			break;
+		case 'passed':
+			$page_title = "Записани избираеми/задължителни дисциплини";
+			$tpl = "passed_exams.php";
 			break;
 		default:
 			header('HTTP/1.1 404 Not Found');

@@ -1,7 +1,7 @@
 <?php
 require_once("functions.php");
 require_once("config.php");
-logged_in();
+verify();
 $exams = [];
 $result = $link->query("SELECT name, date, exams.hour FROM exams JOIN courses ON exams.course_id = courses.id WHERE exams.course_id IN (SELECT course_id FROM participate WHERE student_id = ".$_SESSION['id']. " AND completed < 1)");
 while($row = $result->fetch_assoc()){

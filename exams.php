@@ -1,6 +1,6 @@
 <?php
 require_once('functions.php');
-logged_in();
+verify();
 ?>
 <table class="tg">
 	<colgroup>

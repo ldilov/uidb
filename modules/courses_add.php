@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__."/../functions.php");
-logged_in("..");
+verify("..");
 
 $result = $link->query("SELECT DISTINCT student_id FROM participate WHERE course_id =".$_SESSION['c_id']);
 $participants = $result->num_rows;

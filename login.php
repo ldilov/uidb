@@ -22,7 +22,7 @@ if(!$result = $link->query($query)){
 $account = $result->fetch_assoc();
 
 if(md5($password) == $account['password']) {
-	$_SESSION['logged_in'] = 1;
+	$_SESSION['verify'] = 1;
 	$_SESSION['id'] = $_POST['type'] == 0 ? $account['fnumber'] : $account['id'];
 	$_SESSION['program'] = $_POST['type'] == 0 ? $account['program'] : null;
 	$_SESSION['program_id'] = $account['program'];

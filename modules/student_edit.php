@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__."/../functions.php");
-logged_in("..", $_SESSION['type'] > 0);
+verify("..", $_SESSION['type'] > 0);
 
 if(isset($_POST['course_id'], $_POST['student_id'])){
 	$completed = $_POST['mark'] < 3.00 ? '0' : '1';

@@ -10,7 +10,7 @@ if (window.opener && window.opener !== window) {
 }
 </script>
 <?php
-logged_in("..");
+verify("..");
 
 echo "<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\">";
 echo "<link href=\"../styles/style.css\" rel=\"stylesheet\" type=\"text/css\">";

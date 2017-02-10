@@ -1,6 +1,6 @@
 <?php
 require_once('functions.php');
-logged_in();
+verify();
 
 try {
 	$data = query("SELECT title, firstName, lastName, email, avatar, phone, description, department.name, twitter, facebook FROM teachers JOIN department ON department = department.id");

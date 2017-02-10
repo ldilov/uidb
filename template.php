@@ -1,6 +1,9 @@
 <?php
 require_once('functions.php');
-logged_in();
+verify();
+//Меню
+$menu_item[0] = $_SESSION['type'] == 0 ? "НЕВЗЕТИ ИЗПИТИ" : "ИЗПИТИ"; 
+$menu_item[1] = $_SESSION['type'] == 0 ? "ЗАПИСВАНЕ НА ИЗБИРАЕМА ДИСЦИПЛИНА" : "ИЗБИРАЕМИ ДИСЦИПЛИНИ"; 
 ?>
 <html>
 <head> 
@@ -25,9 +28,8 @@ logged_in();
 	</div>
 	<nav>
 		<ul>
-			<?php $menu_item = $_SESSION['type'] == 0 ? "НЕВЗЕТИ ИЗПИТИ" : "ИЗПИТИ"; ?>
-			<li><a class="third after" href="/index.php?p=exams"> <?php echo $menu_item ; ?></a></li>
-			<li><a class="third after" href="/index.php?p=courses"> ЗАПИСВАНЕ НА ИЗБИРАЕМА ДИСЦИПЛИНА </a></li>
+			<li><a class="third after" href="/index.php?p=exams"> <?php echo $menu_item[0]; ?></a></li>
+			<li><a class="third after" href="/index.php?p=courses"> <?php echo $menu_item[1]; ?> </a></li>
 			<li><a class="third after" href="/index.php?p=profile"> ПРОФИЛ </a></li>
 			<li><a class="third after" href="/index.php?p=logout"> <img src="images/glyphicons/png/glyphicons-681-door.png" height="20" width="20"/></a></li>
 		</ul>
@@ -87,10 +89,10 @@ logged_in();
 				Ако имате въпроси относно нашата онлайн система или въпроси от административен характер, можете да се свържете с нас на:
 				<table>
 					<tr>
-						<td>Тел:</td>  <td>(+359 2) 9308 200</td>
+						<td>Тел:</td>  <td><?php echo $phone; ?></td>
 					</tr>
 					<tr>
-						<td>Поща:</td><td> support@uni-sofia.bg</td>
+						<td>Поща:</td><td> <?php echo $mail; ?></td>
 					</tr>
 				</table>
 			</div>
@@ -106,8 +108,13 @@ logged_in();
 	<li>
 		<div class="icon" data-icon="å"></div>
 		<div class="text">
+			<?php if($_SESSION['type'] == 0){ ?>
 			<h4>Записани предмети</h4>
 			<div>В тази секция можете да видите всички предмети, за които сте се записали. Това са както предметите, които сте взели, така и тези, които все още не сте взели. Моля натиснете <a href="/index.php?p=participate">ТУК</a></div>
+			<?php } else { ?>
+			<h4>Вашите предмети</h4>
+			<div>В тази секция можете да видите всички предмети, за които сте се записали като преподавател. Тък можете и да редактирате съответните предмети. Моля натиснете <a href="/index.php?p=participate">ТУК</a></div>	
+			<?php } ?>
 		</div>
 	</li>
 	</ul>
@@ -116,7 +123,7 @@ logged_in();
 			<ul class="links">
 				<li><a href="index.php">Начало</a></li>
 				<?php if($_SESSION['type'] == 0){ ?>
-				<li><a href="#">Взети изпити</a></li>
+				<li><a href="index.php?p=passed">Взети изпити</a></li>
 				<li><a href="index.php?p=staff">Преподаватели</a></li>
 				<?php } else { ?>
 				<li><a href="index.php?p=students">Студенти</a></li>
@@ -124,13 +131,13 @@ logged_in();
 				<li><a href="#">За нас</a></li>
 			</ul>
 			<div class="social">
-				<a href="https://facebook.com/pages/Софийски-университет-Св-Климент-Охридски/108126932554787" class="fb">
+				<a href="<?php echo  $fb_url; ?>" class="fb">
 					<span data-icon="f" class="icon"></span>
 					<span class="info">
 						<span class="follow">Facebook страница</span>
 					</span>
 				</a>
-				<a href="https://twitter.com/sofiauniversity?lang=bg" class="tw">
+				<a href="<?php echo  $tw_url; ?>" class="tw">
 					<span data-icon="T" class="icon"></span>
 					<span class="info">
 						<span class="follow">Последвайте ни в Twitter</span>
