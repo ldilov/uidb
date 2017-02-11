@@ -56,10 +56,10 @@ if(isset($_GET['p'])){
 		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['cat']; ?></td>
 		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['type'] == 0 ? "Задължителна" : "Избираема"; ?></td>
 		<?php if($_SESSION['type'] == 0){ ?>
-		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['title']." ".$row['firstName']. " ".$row['lastName']; ?></td>
-		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['mark']; ?></td>		
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['title']." ".$row['firstName']. " ".$row['lastName']; ?></td>	
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['credits']; ?> <img src="../images/icons/medal.png" /></td>	
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['mark']; ?></td>			
 		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['completed'] == 0 ? "<span style=\"color: red\">Не</span>" : "Да";?></td>
-		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['credits']; ?> <img src="../images/icons/medal.png" /></td>
 		<?php } else { ?>
 		<td class="<?php echo $class[$iter]; ?>"><input type="text" name="credits" value="<?php echo $row['credits']; ?>" pattern="[1-9]([0-9]*)?"> <img src="../images/icons/medal.png" /></td>
 		<td class="<?php echo $class[$iter]; ?>"><input type="time" name="time" value="<?php echo $row['hours'].":".($row['minutes'] == 0 ? "00" : $row['minutes']); ?>"></td>
