@@ -56,7 +56,7 @@ function query($query, $cond = true, $op = "AND"){
 	if($result = $link->query("$query $op $cond")){
 		return $result;
 	} else {
-		throw new Exception($error_msg);
+		throw new Exception($error_msg.$link->error);
 	}		
 }
 

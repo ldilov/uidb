@@ -8,6 +8,10 @@ if(isset($_POST['op'])){
 		case 'edit':
 		require_once('modules\courses_edit.php');
 		break;
+		
+		case 'del';
+		require_once('modules\courses_delete.php');
+		break;
 	}
 }
 
@@ -34,7 +38,7 @@ if(isset($success)){ ?>
 //Извиличане на данни
 try {
 	if($_SESSION['type'] == 0){
-		$data = query("SELECT courses.name, categories.title as cat, type, teachers.title, teachers.firstName, teachers.lastName, courses.credits, participate.completed, participate.mark FROM courses 
+		$data = query("SELECT courses.id as id, courses.name, categories.title as cat, type, teachers.title, teachers.firstName, teachers.lastName, courses.credits, participate.completed, participate.mark FROM courses 
 						JOIN participate on course_id = courses.id
 						JOIN categories ON category = categories.id
 						JOIN teachers ON teacher_id = teachers.id
