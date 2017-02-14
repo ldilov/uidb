@@ -21,7 +21,7 @@ if(!$result = $link->query($query)){
 
 $account = $result->fetch_assoc();
 
-if(md5($password) == $account['password']) {
+if(password_verify($password, $account['password'])) {
 	$_SESSION['verify'] = 1;
 	$_SESSION['id'] = $_POST['type'] == 0 ? $account['fnumber'] : $account['id'];
 	$_SESSION['program'] = $_POST['type'] == 0 ? $account['program'] : null;

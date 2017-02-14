@@ -5,7 +5,8 @@ $lastname = htmlentities($link->real_escape_string($_POST['lastname']));
 $email = htmlentities($link->real_escape_string($_POST['email']));
 $city = htmlentities($link->real_escape_string($_POST['city']));
 $phone = htmlentities($link->real_escape_string($_POST['phone']));
-$password = md5($link->real_escape_string($_POST['password']));
+$password = $link->real_escape_string($_POST['password']);
+$password = password_hash($password, PASSWORD_BCRYPT);
 if((int)$_POST['type'] == 0){
 	$middlename = htmlentities($link->real_escape_string($_POST['middlename']));
 	$program = $link->real_escape_string($_POST['program']);
