@@ -90,8 +90,7 @@ a.after:after{
   bottom:-0.25em;
 }
 a.before:before,a.after:after{
-  height:5px;
-  height:0.35rem;
+  height:0.3rem;
   width:0;
   background:#0b9559;
 }
