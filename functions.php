@@ -9,7 +9,7 @@ function verify($dir= ".", $cond = true){
 }
 
 function verify_admin($dir= ".", $cond = true){
-	if(!isset($_SESSION['verify']) || $_SESSION['verify'] != 2 || !defined('Permitted') || !$cond){
+	if(!isset($_SESSION['verify']) || $_SESSION['verify'] != 2 || !defined('Permitted') || !$cond || $_SESSION['type'] != 'admin'){
 		header("location:$dir/index.php");
 	}
 }

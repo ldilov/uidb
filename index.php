@@ -1,7 +1,7 @@
 <?php
 session_start();
-include ('config.php');
-include('functions.php');
+require_once('config.php');
+require_once('functions.php');
 if(!file_exists("sys.lock")) {
 	header('Location: /install/install.php');
 }
