@@ -12,7 +12,7 @@ if(isset($_GET['loginFailed']) && isset($_SESSION['loginFailed'])){
 	unset($_SESSION['loginFailed']);
 	exit();
 }
-if(!isset($_SESSION['verify'])){
+if(!isset($_SESSION['verify']) || $_SESSION['verify'] != 1){
 	include('account_err.php');
 	exit();
 }
@@ -77,7 +77,6 @@ if(isset($_GET['p'])){
 	$page_title = "Календар на изпити";
 	$tpl = "home.php";
 }
-
 
 include ('template.php');
 
