@@ -1,5 +1,11 @@
 <?php
 require_once('config.php');
+
+if(!($_SERVER['REQUEST_METHOD'] == 'POST')){
+	$_SESSION['loginFailed'] = true;
+	die(header("location:index.php?loginFailed"));
+}
+
 $firstname = htmlentities($link->real_escape_string($_POST['firstname']));
 $lastname = htmlentities($link->real_escape_string($_POST['lastname']));
 $email = htmlentities($link->real_escape_string($_POST['email']));
@@ -23,6 +29,6 @@ if($result = $link->query($query)){
 	$success = "Акаунта е създаден успешно. Моля впишете се с вашата ел.поща: $email";
 	include('account_err.php');
 } else {
-	echo "Възникна грешка по време на регистрацията: " . $link->error ;
+	echo "Възникна грешка по време на регистрацията!";
 }
 ?>

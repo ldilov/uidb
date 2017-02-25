@@ -8,6 +8,7 @@ $menu_item[1] = $_SESSION['type'] == 0 ? "ЗАПИСВАНЕ НА ИЗБИРАЕ
 <html>
 <head> 
 	<title> УИБ - Унивеситетска информационна база </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8"> 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="styles/calendar.css" rel="stylesheet" type="text/css">

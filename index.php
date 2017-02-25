@@ -5,7 +5,6 @@ include('functions.php');
 if(!file_exists("sys.lock")) {
 	header('Location: /install/install.php');
 }
-define('Permitted', TRUE);
 
 if(isset($_GET['loginFailed']) && isset($_SESSION['loginFailed'])){
 	$error = "Вписването е неуспешно! Проверете името и паролата!";
@@ -17,6 +16,8 @@ if(!isset($_SESSION['verify'])){
 	include('account_err.php');
 	exit();
 }
+define('Permitted', TRUE);
+
 if(isset($_GET['p'])){
 	switch($_GET['p']){
 		case 'logout':

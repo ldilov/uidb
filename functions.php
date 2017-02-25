@@ -8,6 +8,12 @@ function verify($dir= ".", $cond = true){
 	}
 }
 
+function verify_admin($dir= ".", $cond = true){
+	if(!isset($_SESSION['verify']) || $_SESSION['verify'] != 2 || !defined('Permitted') || !$cond){
+		header("location:$dir/index.php");
+	}
+}
+
 function update_table($table, array $params, $cond){
 	global $link;
 	foreach($params as $param => $value){

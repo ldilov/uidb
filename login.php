@@ -3,6 +3,11 @@ session_start();
 require_once('config.php');
 require_once('functions.php');
 
+if(!isset($_POST['email']) || !isset($_POST['password'])){
+	$_SESSION['loginFailed'] = true;
+	die(header("location:index.php?loginFailed"));
+}
+
 //Филтрираме базата подадените параметри
 $email = htmlentities($link->real_escape_string($_POST['email']));
 $password = htmlentities($link->real_escape_string($_POST['password']));
@@ -18,7 +23,6 @@ if(!$result = $link->query($query)){
 	$_SESSION['loginFailed'] = true;
 	die(header("location:index.php?loginFailed"));
 }
-
 $account = $result->fetch_assoc();
 
 if(password_verify($password, $account['password'])) {

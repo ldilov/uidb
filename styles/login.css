@@ -36,9 +36,9 @@ a:hover {
 
 .form {
   background: white;
-  padding: 40px;
-  max-width: 600px;
-  margin: 40px auto;
+  padding: 2.8em;
+  max-width: 43em;
+  margin: 2.87em auto;
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
@@ -56,7 +56,7 @@ a:hover {
 .tab-group li a {
   display: block;
   text-decoration: none;
-  padding: 15px;
+  padding: 0.938em;
   background: rgba(160, 179, 176, 0.25);
   color: black;
   font-size: 20px;
