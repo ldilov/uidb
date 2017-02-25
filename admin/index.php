@@ -56,5 +56,5 @@ if(isset($_GET['p'])){
 	$tpl = "home.php";
 }
 
-include ('template.php');*
+include ('template.php');
 ?>
