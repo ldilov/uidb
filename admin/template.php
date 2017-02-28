@@ -7,8 +7,8 @@
 	<link href="../styles/zsocial.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="../styles/font-awesome.min.css">
 	<link href="../styles/admin/main.css" rel="stylesheet" type="text/css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="../js/jquery-3.1.1.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="header">
@@ -16,7 +16,7 @@
 		<nav>
 			<ul>
 				<li><a class="third after" href="index.php?p=students"> СТУДЕНТИ</a></li>
-				<li><a class="third after" href="index.php?p=lecturers"> ЛЕКТОРИ </a></li>
+				<li><a class="third after" href="index.php?p=teachers"> ПРЕПОДАВАТЕЛИ </a></li>
 				<li><a class="third after" href="index.php?p=courses"> КУРСОВЕ </a></li>
 				<li><a class="third after" href="index.php?p=programs"> ПРОГРАМИ </a></li>
 				<li><a class="third after" href="index.php?p=programs"> ИЗПИТИ </a></li>

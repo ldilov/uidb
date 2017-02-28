@@ -2,7 +2,7 @@
 require_once(__DIR__."/../../functions.php");
 verify_admin("..");
 
-$student = fetch_user_info($_POST['fnumber'], 0);
+$teacher = fetch_user_info($_POST['id'], 1);
 $attributes = array_keys($_POST);
 foreach($attributes as $attribute){
 	if($_POST[$attribute] == "" || $attribute == 'op' || $attribute == 'edit')
@@ -17,8 +17,8 @@ foreach($attributes as $attribute){
 }
 
 try {
-	update_table("students", $params, "fnumber = ".$_POST['fnumber']);
-	$success = "Промените са записани успешно! Данните на студента са обновени.";
+	update_table("teachers", $params, "id = ".$_POST['id']);
+	$success = "Промените са записани успешно! Данните на преподавателят са обновени.";
 } catch (Exception $e){
 	$error = "Съобщение: " .$e->getMessage();
 }

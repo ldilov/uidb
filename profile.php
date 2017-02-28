@@ -119,7 +119,7 @@ if($result = $link->query($query)){
           <label class="col-lg-3 control-label">Описание:</label>
           <div class="col-lg-8">
 		     <script type="text/javascript" src="plugins/ckeditor/ckeditor.js"></script>
-             <textarea name="description" style="width: 100%;" maxlength="255" spellcheck="true" lang="bg" id="editor"><?php echo $row['description']; ?></textarea>
+             <textarea name="description" style="width: 100%;" maxlength="1500" spellcheck="true" lang="bg" id="editor"><?php echo $row['description']; ?></textarea>
 			 <script type="text/javascript"> CKEDITOR.replace( 'editor' );</script>
           </div>
         </div>			

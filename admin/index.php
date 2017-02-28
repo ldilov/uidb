@@ -26,17 +26,17 @@ if(isset($_GET['p'])){
 		case 'logout':
 			header("location:logout.php");
 			break;
-		case 'exams':
-			if($_SESSION['type'] == 0)
-				$page_title = "Списък от невзети изпити";
-			else
-				$page_title = "Вашите изпити";
-			
-			$tpl = "exams.php";
+		case 'teachers':
+			if(isset($_POST['name'])){
+				$page_title = "Преподаватели от катедра \"".$_POST['name']."\"";
+			} else {
+				$page_title = "Преподаватели";
+			}
+			$tpl = "teachers.php";
 			break;
-		case 'profile':
-			$page_title = "Профил";
-			$tpl = "profile.php";
+		case 'teachhers_add':
+			$page_title = "Добавяне на преподавател";
+			$tpl = "teachers_add.php";
 			break;
 		case 'staff':
 			$page_title = "Преподаватели";

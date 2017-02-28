@@ -103,6 +103,14 @@ function build_table_header(array &$theaders){
 	echo "</tr>";
 }
 
+function build_table_footer(array &$tfooter){
+	echo "<tfoot><tr>";
+	foreach($tfooter as $ft){
+		echo "<td class=\"tfooter\">$ft</td>";
+	}
+	echo "</tr></tfoot>";
+}
+
 function campaignAvailable(){
 	global $first_sem, $second_sem, $campaign_end;
 	$cur = (int)date('m');

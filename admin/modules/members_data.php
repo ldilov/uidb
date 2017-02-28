@@ -36,50 +36,25 @@ if(isset($_GET['p'])){
 		</form>
 		</tr>
 <?php
-	} elseif($_GET['p'] == "lecturers"){ ?>
+	} elseif($_GET['p'] == "teachers"){ ?>
 		<tr>
-		<form method="post" action="/index.php?p=lecturers">
-		<td class="<?php echo $class[$iter]; ?>">
-			<a href="javascript: void(0);" id="info<?php echo $index; ?>">
-				<?php echo $row['name']; ?>
-			</a>
-			<script> 
-				document.getElementById("info<?php echo $index; ?>").addEventListener ("click", function(){
-					window.open("modules/course_info.php?id=<?php echo $row['id']; ?>", "Информация", "toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, titlebar=no, width=550, height=250");
-				});
-			</script>
-			
-		</td>
-		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['cat']; ?></td>
-		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['type'] == 0 ? "Задължителна" : "Избираема"; ?></td>
-		<?php if($_SESSION['type'] == 0){ ?>
-		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['title']." ".$row['firstName']. " ".$row['lastName']; ?></td>	
-		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['credits']; ?> <img src="../images/icons/medal.png" /></td>	
-		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['mark']; ?></td>			
-		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['completed'] == 0 ? "<span style=\"color: red\">Не</span>" : "Да";?></td>
-		<?php } else { ?>
-		<td class="<?php echo $class[$iter]; ?>"><input type="text" name="credits" value="<?php echo $row['credits']; ?>" pattern="[1-9]([0-9]*)?"> <img src="../images/icons/medal.png" /></td>
-		<td class="<?php echo $class[$iter]; ?>"><input type="time" name="time" value="<?php echo $row['hours'].":".($row['minutes'] == 0 ? "00" : $row['minutes']); ?>"></td>
-		<td class="<?php echo $class[$iter]; ?>"><input type="text" name="auditorium" value="<?php echo $row['auditorium']; ?>"></td>
-		<td class="<?php echo $class[$iter]; ?>"><input type="text" name="day" value="<?php echo $row['day']; ?>"></td>
-		<?php } ?>
+		<form method="post" action="index.php?p=teachers" style='display:inline;'>
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['title']." ".$row['firstName']. " ".$row['lastName'];; ?></td>
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['email']; ?></td>
+		<td class="<?php echo $class[$iter]; ?>"><?php echo $row['phone'];    ?></td>
+		<td class="<?php echo $class[$iter]; ?>"><a href="<?php echo $row['facebook']; ?>" target="_blank"><i style="color:white;" class="fa fa-facebook" aria-hidden="true"></i></a></td>
+		<td class="<?php echo $class[$iter]; ?>"><a href="<?php echo $row['twitter']; ?>" target="_blank"><i style="color:white;" class="fa fa-twitter" aria-hidden="true"></i></a></td>
 		<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 		<?php 
-		if($_SESSION['type'] == 0){
-			if(campaignAvailable() && $row['type'] > 0){
-				echo "<input type=\"hidden\" name=\"op\" value=\"del\">";
-				echo "<td class=". $class[$iter] ."><button type=\"submit\" class=\"btn btn-xs btn-default\"><span class=\"	glyphicon glyphicon-remove\"></span> Отпиши ме</button></td>";
-			} else {
-				echo "<td class=". $class[$iter] ."><span class=\"glyphicon glyphicon-minus\"></span></td>";
-			}
-		} else {
-			if(campaignAvailable()){
-				echo "<input type=\"hidden\" name=\"op\" value=\"edit\">";
-				echo "<td class=". $class[$iter] ."><button type=\"submit\" class=\"btn btn-xs btn-default\"><span class=\"glyphicon glyphicon-edit\"></span> Запиши</button></td>";
-			} else {
-				echo "<td class=". $class[$iter] ."><span class=\"glyphicon glyphicon-minus\"></span></td>";
-			}
-		}
+		echo "<input type=\"hidden\" name=\"op\" value=\"delete\">";
+		echo "<td class=". $class[$iter] ."><button type=\"submit\" class=\"btn btn-xs btn-default\"><span style=\"color:black\" class=\"glyphicon glyphicon-minus\"></span> Изтрий</button>";
+		echo "<input type=\"hidden\" name=\"lecturer_id\" value=\"".$row['id']."\">";
+		echo "</form>";
+		echo "<form method=\"post\" action=\"index.php?p=teachers\" style='display:inline;'>";
+		echo "<input type=\"hidden\" name=\"op\" value=\"edit\">";
+		echo "<input type=\"hidden\" name=\"id\" value=\"".$row['id']."\">";
+		echo "<button type=\"submit\" class=\"btn btn-xs btn-default\"><span style=\"color:black\" class=\"glyphicon glyphicon-edit\"></span> Редакция</button></td>";
+		echo "</form>";
 		?>
 		</form>
 		</tr>	
