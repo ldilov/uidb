@@ -14,7 +14,7 @@ $password = htmlentities($link->real_escape_string($_POST['password']));
 
 //Завка
 if($_POST['type'] == 0) {
-	$query = "SELECT fnumber, email, password, degree, program_id as program FROM students WHERE email = '$email'";
+	$query = "SELECT fnumber, email, password, degree, program_id as program, status FROM students WHERE email = '$email'";
 } else {
     $query = "SELECT id, email, password FROM teachers WHERE email = '$email'";
 }
@@ -24,6 +24,11 @@ if(!$result = $link->query($query)){
 	die(header("location:index.php?loginFailed"));
 }
 $account = $result->fetch_assoc();
+
+if($_POST['type'] == 0 && $account['status'] == 1){
+	$_SESSION['accountDeactivated'] = true;
+	die(header("location:index.php?accountDeactivated"));
+}
 
 if(password_verify($password, $account['password'])) {
 	$_SESSION['verify'] = 1;

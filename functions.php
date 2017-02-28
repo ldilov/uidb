@@ -6,6 +6,12 @@ function verify($dir= ".", $cond = true){
 	if(!isset($_SESSION['verify']) || $_SESSION['verify'] != 1 || !defined('Permitted') || !$cond){
 		header("location:$dir/index.php");
 	}
+	
+	$account = fetch_user_info($_SESSION['id'], 0, "status");
+	if($_SESSION['type'] == 0 && $account['status'] == 1){
+		$_SESSION['accountDeactivated'] = true;
+		die(header("location:index.php?accountDeactivated"));
+	}
 }
 
 function verify_admin($dir= ".", $cond = true){
@@ -16,8 +22,12 @@ function verify_admin($dir= ".", $cond = true){
 
 function update_table($table, array $params, $cond){
 	global $link;
+
 	foreach($params as $param => $value){
-		$result = $link->query("UPDATE $table SET $param = '$value' WHERE $cond");
+		if($value == null || $value == "")
+			continue;
+
+		$result = $link->query("UPDATE $table SET $table.$param = '$value' WHERE $cond");
 		if($link->affected_rows < 0 || !$result){
 			throw new Exception("Промяната беше неуспешна. Грешка: ". $link->error);
 		}
@@ -57,21 +67,22 @@ function fetch_table_rows($table, $cond = true){
 	}		
 }
 
-function query($query, $cond = true, $op = "AND"){
+function query($query, $cond = true, $op = "AND", $limit = "-1"){
 	global $link, $error_msg;
-	if($result = $link->query("$query $op $cond")){
+	$query = $limit == -1 ? "$query $op $cond" : "$query $op $cond LIMIT $limit";
+	if($result = $link->query($query)){
 		return $result;
 	} else {
 		throw new Exception($error_msg.$link->error);
 	}		
 }
 
-function fetch_user_info($id, $type){
+function fetch_user_info($id, $type, $param = "*"){
 	global $link;
 	if($type == 0) {
-		$result = $link->query("SELECT * FROM students WHERE fnumber=" . $id);
+		$result = $link->query("SELECT $param FROM students WHERE fnumber=" . $id);
 	} else {
-		$result = $link->query("SELECT * FROM teachers WHERE id=" . $id);
+		$result = $link->query("SELECT $param FROM teachers WHERE id=" . $id);
 	}
 	return $result-> fetch_assoc();
 }
@@ -103,5 +114,26 @@ function campaignAvailable(){
 			return true;
 	}
 return false;
+}
+
+function getPages($data){
+    global $itemsPerPage;
+	$rows = $data->num_rows;
+	return ($rows % $itemsPerPage) == 0 ? (int)($rows / $itemsPerPage) : (int)($rows / $itemsPerPage + 1);
+}
+
+/* Students functions 
+---------------------------------------*/
+
+function getCredits($id){
+	global $link;
+	$query = "SELECT credits FROM courses JOIN participate on courses.id = participate.course_id WHERE student_id = $id AND completed > 0";
+	$credits = 0;
+	if($result = $link->query($query)){
+		while($row = $result->fetch_assoc()){
+			$credits += $row['credits'];
+		}
+	}
+	return $credits;
 }
 ?>

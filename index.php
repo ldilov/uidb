@@ -11,6 +11,11 @@ if(isset($_GET['loginFailed']) && isset($_SESSION['loginFailed'])){
 	include('account_err.php');
 	unset($_SESSION['loginFailed']);
 	exit();
+} else if(isset($_GET['accountDeactivated']) && isset($_SESSION['accountDeactivated'])){
+	$error = "Вашите права са прекратени. Обърнете се към администратор или преподавател.";
+	include('account_err.php');
+	session_unset();
+	exit();
 }
 if(!isset($_SESSION['verify']) || $_SESSION['verify'] != 1){
 	include('account_err.php');

@@ -43,7 +43,11 @@ if(isset($_GET['p'])){
 			$tpl = "staff.php";
 			break;
 		case 'students':
-			$page_title = "Студенти";
+			if(isset($_POST['name'])){
+				$page_title = "Студенти от спец. \"".$_POST['name']."\"";
+			} else {
+				$page_title = "Студенти";
+			}
 			$tpl = "students.php";
 			break;
 		default:
