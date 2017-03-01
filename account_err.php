@@ -173,7 +173,7 @@
 <footer>
 <div style="margin-top: 25px;">
 	<div style="text-align: center;">
-        <p>© Copyright <?php echo date("Y"); ?>. Лазар Дилов. All Rights Reserved. </p>
+        <p>Система УИБ - Лазар Дилов <br>Графичен дизайн - Виржиния Вълчева <br> Всички права са запазени ©<?php echo date("Y"); ?> </p>
 	</div>
 </div>
  </footer>

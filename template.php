@@ -152,7 +152,7 @@ $menu_item[1] = $_SESSION['type'] == 0 ? "ЗАПИСВАНЕ НА ИЗБИРАЕ
 				</a>
 			</div>
 			<div class="clear"></div>
-			<div class="copyright">Лазар Дилов &copy;  2017 Всички права са запазени</div>
+			<div class="copyright">Система - Лазар Дилов. Графичен дизайн - Виржиния Вълчева. <br>Всички права са запазени &copy;  2017</div>
 		</div>
 	</div>
 </footer>
