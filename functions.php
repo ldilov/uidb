@@ -130,6 +130,26 @@ function getPages($data){
 	return ($rows % $itemsPerPage) == 0 ? (int)($rows / $itemsPerPage) : (int)($rows / $itemsPerPage + 1);
 }
 
+/* Verifications
+---------------------------------------*/
+function userRegAllowed($type){
+	global $link, $error_msg;
+	if($type == 1){
+		$data = $link->query("SELECT teacher_registration_allowed FROM options");
+	} else {
+		$data = $link->query("SELECT students_registration_allowed FROM options");
+	}
+	
+	if($data)
+	{
+		$val = $data->fetch_assoc();
+		return (int)reset($val);
+	} else {
+		throw new Exception($error_msg.$link->error);
+	}
+	
+}
+
 /* Students functions 
 ---------------------------------------*/
 

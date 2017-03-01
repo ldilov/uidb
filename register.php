@@ -1,9 +1,16 @@
 <?php
 require_once('config.php');
+require_once('functions.php');
 
 if(!($_SERVER['REQUEST_METHOD'] == 'POST')){
 	$_SESSION['loginFailed'] = true;
 	die(header("location:index.php?loginFailed"));
+}
+
+if(!userRegAllowed((int)$_POST['type'])){
+	$error = "Регистрацията е за избраният тип потребител е изключена";
+	include('account_err.php');
+	return;
 }
 
 $firstname = htmlentities($link->real_escape_string($_POST['firstname']));
@@ -29,6 +36,8 @@ if($result = $link->query($query)){
 	$success = "Акаунта е създаден успешно. Моля впишете се с вашата ел.поща: $email";
 	include('account_err.php');
 } else {
-	echo "Възникна грешка по време на регистрацията!";
+	$error = "Възникна грешка по време на регистрацията!";
+	include('account_err.php');
+	return;
 }
 ?>
