@@ -21,14 +21,14 @@
 					  Потребител<span class="req">*</span>
 					</label>
 					<input readonly onfocus="this.removeAttribute('readonly');" name="username" type="text" autocomplete="off" 
-					pattern="[A-Za-z1-9]{3,15}" id="loginFormUser"  oninvalid="this.setCustomValidity('Невалидна стойност!')" oninput="setCustomValidity('')"/>	
+					pattern="[A-Za-z0-9]{3,15}" id="loginFormUser"  oninvalid="this.setCustomValidity('Невалидна стойност!')" oninput="setCustomValidity('')"/>	
 				</div>
 				<div class="sub-wrapper">
 					<label>
 					  Парола<span class="req">*</span>
 					</label>
 					<input readonly onfocus="this.removeAttribute('readonly');" name="password" type="password" autocomplete="off" 
-					oninvalid="this.setCustomValidity('Невалидна стойност!')" oninput="setCustomValidity('')" pattern="[A-Za-z1-9]{3,254}"/>
+					oninvalid="this.setCustomValidity('Невалидна стойност!')" oninput="setCustomValidity('')" pattern="[A-Za-z0-9]{3,254}"/>
 				</div>
 			</div>
 				<input type="hidden" name="type" value="admin">

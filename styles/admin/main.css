@@ -564,6 +564,38 @@ form{
 	margin: 0px 0px 0px;
 }
 
+#dropdown input[type="search"]
+{
+    -moz-appearance:    textfield;
+    -webkit-appearance: textfield;
+    appearance: textfield;
+	border:none;
+	background-color: #1eb98f;
+	width: 100%;
+	height: 30px;
+	color: white;
+}
+
+#dropdown input[type="search"]:focus
+{
+	outline: none;
+}
+
+#dropdown ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    white;
+}
+#dropdown :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    white;
+   opacity:  1;
+}
+#dropdown ::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    white;
+   opacity:  1;
+}
+#dropdown :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    white;
+}
+
 /* Pagination
 ----------------------------------*/
 
