@@ -96,43 +96,43 @@ $itemsPerPage = 8; //колко елемента на страница да по
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_21-46-13.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_21-46-38.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_21-56-11.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_21-56-46.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_21-57-06.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_21-57-43.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_21-58-37.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_22-04-11.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_22-04-37.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_22-05-16.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_22-05-38.png?raw=true)
