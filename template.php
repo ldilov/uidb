@@ -29,6 +29,9 @@ $menu_item[1] = $_SESSION['type'] == 0 ? "ЗАПИСВАНЕ НА ИЗБИРАЕ
 	</div>
 	<nav>
 		<ul>
+			<?php if($_SESSION['type'] == 1) { ?>
+			<li><a class="third after" href="index.php?p=students">СТУДЕНТИ</a></li>
+			<?php } ?>
 			<li><a class="third after" href="/index.php?p=exams"> <?php echo $menu_item[0]; ?></a></li>
 			<li><a class="third after" href="/index.php?p=courses"> <?php echo $menu_item[1]; ?> </a></li>
 			<li><a class="third after" href="/index.php?p=profile"> ПРОФИЛ </a></li>
