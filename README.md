@@ -92,7 +92,7 @@ $itemsPerPage = 8; //колко елемента на страница да по
 
 ## Снимки
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_21-45-26.png?raw=true)
----
+***
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_21-46-13.png?raw=true)
