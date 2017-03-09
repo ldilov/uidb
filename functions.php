@@ -69,8 +69,9 @@ function fetch_table_rows($table, $cond = true){
 
 function query($query, $cond = true, $op = "AND", $limit = "-1"){
 	global $link, $error_msg;
-	$query = $limit == -1 ? "$query $op $cond" : "$query $op $cond LIMIT $limit";
-	if($result = $link->query($query)){
+	$fquery = (int)$limit == -1 ? "$query $op $cond" : "$query $op $cond LIMIT $limit";
+
+	if($result = $link->query($fquery)){
 		return $result;
 	} else {
 		throw new Exception($error_msg.$link->error);
@@ -103,10 +104,10 @@ function build_table_header(array &$theaders){
 	echo "</tr>";
 }
 
-function build_table_footer(array &$tfooter){
+function build_table_footer(array &$tfooter, $colspan){
 	echo "<tfoot><tr>";
 	foreach($tfooter as $ft){
-		echo "<td class=\"tfooter\">$ft</td>";
+		echo "<td colspan=\"$colspan\" class=\"tfooter\">$ft</td>";
 	}
 	echo "</tr></tfoot>";
 }
@@ -150,6 +151,21 @@ function userRegAllowed($type){
 	
 }
 
+/* Course functions 
+---------------------------------------*/
+function getCourseType($id){
+	global $link, $error_msg;
+	$res = $link->query("SELECT type FROM courses WHERE id= $id");
+	if(!$res){
+		throw new Exception($error_msg.$link->error);
+	} else {
+		$data = $res->fetch_assoc();
+		return $data['type'];
+	}
+	
+}
+
+
 /* Students functions 
 ---------------------------------------*/
 
@@ -163,5 +179,11 @@ function getCredits($id){
 		}
 	}
 	return $credits;
+}
+
+function getStudentName($fn){
+	$result = query("SELECT firstName, middleName, lastName FROM students WHERE fnumber = $fn");
+	$data = $result->fetch_assoc();
+	return $data['firstName']. " ". $data['middleName']. " " . $data['lastName'];
 }
 ?>

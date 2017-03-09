@@ -56,7 +56,6 @@ if(isset($_GET['p'])){
 		echo "<button type=\"submit\" class=\"btn btn-xs btn-default\"><span style=\"color:black\" class=\"glyphicon glyphicon-edit\"></span> Редакция</button></td>";
 		echo "</form>";
 		?>
-		</form>
 		</tr>	
 	<?php
 	}

@@ -38,9 +38,9 @@ if(isset($_GET['p'])){
 			$page_title = "Добавяне на преподавател";
 			$tpl = "teachers_add.php";
 			break;
-		case 'staff':
-			$page_title = "Преподаватели";
-			$tpl = "staff.php";
+		case 'courses':
+			$page_title = "Курсове/Предмети";
+			$tpl = "courses.php";
 			break;
 		case 'students':
 			if(isset($_POST['name'])){
@@ -50,6 +50,18 @@ if(isset($_GET['p'])){
 			}
 			$tpl = "students.php";
 			break;
+		case 'participate':
+			if(isset($_GET['op'])){
+				if($_GET['op'] == "getuser" || $_GET['op'] == 'sign' || $_GET['op'] == 'remove'){
+					$page_title = isset($_POST['fn']) && $_POST['fn'] != '' ? getStudentName($_POST['fn']) : "Записване на студенти за курсове";
+				}elseif($_GET['op'] == "add"){
+					$page_title = isset($_POST['fn']) && $_POST['fn'] != '' ? getStudentName($_POST['fn']) : "Записване на студенти за курсове";
+				}
+			} else {
+				$page_title = "Записване на студенти за курсове";
+			}
+			$tpl = "participate.php";
+			break;			
 		default:
 			header('HTTP/1.1 404 Not Found');
 			exit();

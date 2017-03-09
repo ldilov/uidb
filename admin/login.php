@@ -15,7 +15,6 @@ $password = htmlentities($link->real_escape_string($_POST['password']));
 //Завка
 $query = "SELECT id, username, password FROM sysadmins WHERE username = '$username'";
 
-
 if(!$result = $link->query($query)){
 	$_SESSION['loginFailed'] = true;
 	die(header("location:index.php?loginFailed"));

@@ -458,6 +458,11 @@ hr.message-inner-separator
 	background-color:#00a651;
 }
 
+button:disabled:hover, button:disabled{
+	background-color:gray;
+	color:white;
+}
+
 a{
 	text-decoration:none !important;
 }
@@ -564,36 +569,81 @@ form{
 	margin: 0px 0px 0px;
 }
 
-#dropdown input[type="search"]
+input[type="search"]
 {
     -moz-appearance:    textfield;
     -webkit-appearance: textfield;
     appearance: textfield;
 	border:none;
 	background-color: #1eb98f;
-	width: 100%;
+	width: 80%;
 	height: 30px;
 	color: white;
+	padding-right: 50px;
 }
 
-#dropdown input[type="search"]:focus
+#searchbox {
+	width: 300px;
+	padding:10px;
+    cursor:pointer;
+    font-size: 15px;
+    border: 1px solid rgb(169, 169, 169);
+    -moz-appearance: none;
+	background-color: #1eb98f;
+	color:white;
+	margin:auto;
+}
+
+input[type="search"]:focus
 {
 	outline: none;
 }
 
-#dropdown ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+@keyframes loading{
+    from {
+		background: url("../../images/icons/search.png") no-repeat;
+		background-size: 30px 30px;
+	}
+    to {
+		background: url("../../images/icons/loading.gif") no-repeat;
+		background-size: 25px 25px;
+	}
+}
+
+#searchbox ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    white;
+	vertical-align: center;
 }
-#dropdown :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+#searchbox :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
    color:    white;
    opacity:  1;
 }
-#dropdown ::-moz-placeholder { /* Mozilla Firefox 19+ */
+#searchbox ::-moz-placeholder { /* Mozilla Firefox 19+ */
    color:    white;
    opacity:  1;
 }
-#dropdown :-ms-input-placeholder { /* Internet Explorer 10-11 */
+#searchbox :-ms-input-placeholder { /* Internet Explorer 10-11 */
    color:    white;
+}
+
+#search {
+    height: 25px;
+    width: 27px;
+    color: white;
+    border: 0;
+    -webkit-appearance: none;
+	background: url("../../images/icons/search.png") no-repeat;
+	background-size: 30px 30px;
+}
+
+#search:focus{
+	outline:none;
+}
+
+#search:active{
+	outline:none;
+	background: url("../../images/icons/loading.gif") no-repeat;
+	background-size: 25px 27px;
 }
 
 /* Pagination

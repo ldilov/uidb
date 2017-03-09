@@ -118,10 +118,10 @@ if(isset($error)){ ?>
 	}
 	$tfooter = [
 	"<a href=\"?p=teachers_add\"><div class=\"button\">ДОБАВИ ПРЕПОДАВАТЕЛ
-		<span class=\"down-arrow-icon\"><i class=\"fa fa-plus-square\" aria-hidden=\"true\"></i><span>
+		<i class=\"fa fa-plus-square\" aria-hidden=\"true\"></i>
 	</div></a>
 	"];
-	build_table_footer($tfooter);
+	build_table_footer($tfooter, 6);
 ?>
 </table>
 
