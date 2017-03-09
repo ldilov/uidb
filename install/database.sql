@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : Localhost
 Source Server Version : 50505
 Source Host           : localhost:3306
-Source Database       : website
+Source Database       : cleanwebsite
 
 Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-02-10 17:00:28
+Date: 2017-03-09 21:53:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -64,11 +64,11 @@ CREATE TABLE `courses` (
 -- ----------------------------
 -- Records of courses
 -- ----------------------------
-INSERT INTO `courses` VALUES ('1', 'Алгебра 1', 'Изчуаване на линейна алгебра', '0', '3', '15', '10:21:00', '123', 'ФМИ', '1', 'Понеделник', '1', '32');
-INSERT INTO `courses` VALUES ('2', 'Ruby', 'Изучаване основите на програмиране с Ruby и Ruby on RAILS', '1', '3', '25', '11:15:00', '101', 'ФМИ', '1', 'Сряда', '1', '32');
-INSERT INTO `courses` VALUES ('3', 'Python', 'Изучаване основи на програмирането с Python', '1', '3', '23', '12:00:00', '121', 'ФМИ', '1', 'Четвъртък', '1', '32');
-INSERT INTO `courses` VALUES ('4', 'Програмиране  с Java', 'Изучаване програмиране на Java и многонишково програмиране.', '1', '3', '25', '15:00:00', '121', 'ФМИ', '1', 'Петък', '3', '32');
-INSERT INTO `courses` VALUES ('5', 'Изкуствен интелект', 'Изучаване основните принципи на изкуствения интелект', '0', '3', '25', '10:23:11', '122', 'ФМИ', '1', 'Сряда', '1', '32');
+INSERT INTO `courses` VALUES ('1', 'Алгебра 1', 'Изчуаване на линейна алгебра', '0', null, '15', '10:21:00', '123', 'ФМИ', '1', 'Понеделник', '1', '32');
+INSERT INTO `courses` VALUES ('2', 'Ruby', 'Изучаване основите на програмиране с Ruby и Ruby on RAILS', '1', null, '25', '11:15:00', '101', 'ФМИ', '1', 'Сряда', '1', '32');
+INSERT INTO `courses` VALUES ('3', 'Python', 'Изучаване основи на програмирането с Python', '1', null, '23', '12:00:00', '121', 'ФМИ', '1', 'Четвъртък', '1', '32');
+INSERT INTO `courses` VALUES ('4', 'Програмиране  с Java', 'Изучаване програмиране на Java и многонишково програмиране.', '1', null, '25', '15:00:00', '121', 'ФМИ', '1', 'Петък', '3', '32');
+INSERT INTO `courses` VALUES ('5', 'Изкуствен интелект', 'Изучаване основните принципи на изкуствения интелект', '0', null, '25', '10:23:11', '122', 'ФМИ', '1', 'Сряда', '1', '32');
 
 -- ----------------------------
 -- Table structure for department
@@ -113,8 +113,8 @@ CREATE TABLE `exams` (
 -- ----------------------------
 -- Records of exams
 -- ----------------------------
-INSERT INTO `exams` VALUES ('1', '1', '3', '2017-02-03', '10:00:00', '123', 'ФМИ', '1');
-INSERT INTO `exams` VALUES ('2', '2', '3', '2017-02-03', '10:00:00', '141', 'ФМИ', '1');
+INSERT INTO `exams` VALUES ('1', '1', null, '2017-02-03', '10:00:00', '123', 'ФМИ', '1');
+INSERT INTO `exams` VALUES ('2', '2', null, '2017-02-03', '10:00:00', '141', 'ФМИ', '1');
 
 -- ----------------------------
 -- Table structure for messages
@@ -134,6 +134,20 @@ CREATE TABLE `messages` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for options
+-- ----------------------------
+DROP TABLE IF EXISTS `options`;
+CREATE TABLE `options` (
+  `teacher_registration_allowed` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `student_registration_allowed` tinyint(3) unsigned NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of options
+-- ----------------------------
+INSERT INTO `options` VALUES ('1', '1');
+
+-- ----------------------------
 -- Table structure for participate
 -- ----------------------------
 DROP TABLE IF EXISTS `participate`;
@@ -151,9 +165,6 @@ CREATE TABLE `participate` (
 -- ----------------------------
 -- Records of participate
 -- ----------------------------
-INSERT INTO `participate` VALUES ('5', '1', '1', '3.00');
-INSERT INTO `participate` VALUES ('5', '4', '0', null);
-INSERT INTO `participate` VALUES ('5', '2', '1', '3.00');
 
 -- ----------------------------
 -- Table structure for programs
@@ -192,17 +203,34 @@ CREATE TABLE `students` (
   `school` varchar(255) DEFAULT 'Не съобщава',
   `skype` varchar(255) DEFAULT 'Не съобщава',
   `avatar` varchar(255) DEFAULT 'images/avatar.jpg',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`fnumber`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `firstName` (`firstName`,`middleName`,`lastName`),
   KEY `program_id` (`program_id`),
   CONSTRAINT `students_ibfk_1` FOREIGN KEY (`program_id`) REFERENCES `programs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6028 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of students
 -- ----------------------------
-INSERT INTO `students` VALUES ('5', '062ed1a8fe4d762eab76205037e1d8f8', 'Лазар', 'Валентинов', 'Дилов', 'ldilov@yahoo.com', 'Бакалавър', '1', '2017-02-03 14:00:17', '1', 'София', '0885215350', '', 'qrqwr', 'images/avatars/14862092271a1c152905f71ceb6f0e85cacfb32a2d.jpg');
+
+-- ----------------------------
+-- Table structure for sysadmins
+-- ----------------------------
+DROP TABLE IF EXISTS `sysadmins`;
+CREATE TABLE `sysadmins` (
+  `id` int(255) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of sysadmins
+-- ----------------------------
+INSERT INTO `sysadmins` VALUES ('1', 'admin', '$2y$10$F2Ca7s33ajY0KDwaiAF/JeGIhXaZuuOcZ1EA69Pd43fyFv/9iw7By', 'admin@abvvv.bg');
 
 -- ----------------------------
 -- Table structure for teachers
@@ -219,7 +247,7 @@ CREATE TABLE `teachers` (
   `city` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `avatar` varchar(255) NOT NULL DEFAULT 'images/avatar.jpg',
-  `description` varchar(255) DEFAULT NULL,
+  `description` text,
   `facebook` varchar(255) DEFAULT NULL,
   `twitter` varchar(255) DEFAULT NULL,
   `department` int(11) NOT NULL,
@@ -228,9 +256,8 @@ CREATE TABLE `teachers` (
   UNIQUE KEY `firstName` (`firstName`,`lastName`),
   KEY `fk_1` (`department`),
   CONSTRAINT `fk_1` FOREIGN KEY (`department`) REFERENCES `department` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3452 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of teachers
 -- ----------------------------
-INSERT INTO `teachers` VALUES ('3', '062ed1a8fe4d762eab76205037e1d8f8', 'Иван', 'Иванов', 'eastman18@yahoo.com', 'проф.', '2017-02-02 10:57:21', 'София', '0888123123', 'images/avatars/14865390575ae0c1c8a5260bc7b6648f6fbd115c35.jpg', '<p>Някаква примерна информация. Преподавател по някакъв предмет в университета.</p>\r\n\r\n<p><strong>История:</strong></p>\r\n\r\n<ul>\r\n	<li><strong>Завършва през 1990г. ФМИ , спец. Информатика</strong></li>\r\n	<li>Прави още нещо после.</li>\r\n	<li>Става преподава', null, null, '1');
