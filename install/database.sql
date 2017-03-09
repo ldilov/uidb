@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : Localhost
 Source Server Version : 50505
 Source Host           : localhost:3306
-Source Database       : cleanwebsite
+Source Database       : website
 
 Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-03-09 21:53:15
+Date: 2017-03-09 21:59:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -64,11 +64,11 @@ CREATE TABLE `courses` (
 -- ----------------------------
 -- Records of courses
 -- ----------------------------
-INSERT INTO `courses` VALUES ('1', 'Алгебра 1', 'Изчуаване на линейна алгебра', '0', null, '15', '10:21:00', '123', 'ФМИ', '1', 'Понеделник', '1', '32');
-INSERT INTO `courses` VALUES ('2', 'Ruby', 'Изучаване основите на програмиране с Ruby и Ruby on RAILS', '1', null, '25', '11:15:00', '101', 'ФМИ', '1', 'Сряда', '1', '32');
-INSERT INTO `courses` VALUES ('3', 'Python', 'Изучаване основи на програмирането с Python', '1', null, '23', '12:00:00', '121', 'ФМИ', '1', 'Четвъртък', '1', '32');
-INSERT INTO `courses` VALUES ('4', 'Програмиране  с Java', 'Изучаване програмиране на Java и многонишково програмиране.', '1', null, '25', '15:00:00', '121', 'ФМИ', '1', 'Петък', '3', '32');
-INSERT INTO `courses` VALUES ('5', 'Изкуствен интелект', 'Изучаване основните принципи на изкуствения интелект', '0', null, '25', '10:23:11', '122', 'ФМИ', '1', 'Сряда', '1', '32');
+INSERT INTO `courses` VALUES ('1', 'Алгебра 1', 'Изчуаване на линейна алгебра', '0', '3', '15', '10:21:00', '123', 'ФМИ', '1', 'Понеделник', '1', '32');
+INSERT INTO `courses` VALUES ('2', 'Ruby', 'Изучаване основите на програмиране с Ruby и Ruby on RAILS', '1', '3', '25', '11:15:00', '101', 'ФМИ', '1', 'Сряда', '1', '32');
+INSERT INTO `courses` VALUES ('3', 'Python', 'Изучаване основи на програмирането с Python', '1', '3', '23', '12:00:00', '121', 'ФМИ', '1', 'Четвъртък', '1', '32');
+INSERT INTO `courses` VALUES ('4', 'Програмиране  с Java', 'Изучаване програмиране на Java и многонишково програмиране.', '1', '3', '25', '15:00:00', '121', 'ФМИ', '1', 'Петък', '3', '32');
+INSERT INTO `courses` VALUES ('5', 'Изкуствен интелект', 'Изучаване основните принципи на изкуствения интелект', '0', '3', '25', '10:23:11', '122', 'ФМИ', '1', 'Сряда', '1', '32');
 
 -- ----------------------------
 -- Table structure for department
@@ -113,8 +113,8 @@ CREATE TABLE `exams` (
 -- ----------------------------
 -- Records of exams
 -- ----------------------------
-INSERT INTO `exams` VALUES ('1', '1', null, '2017-02-03', '10:00:00', '123', 'ФМИ', '1');
-INSERT INTO `exams` VALUES ('2', '2', null, '2017-02-03', '10:00:00', '141', 'ФМИ', '1');
+INSERT INTO `exams` VALUES ('1', '1', '3', '2017-02-03', '10:00:00', '123', 'ФМИ', '1');
+INSERT INTO `exams` VALUES ('2', '2', '3', '2017-02-03', '10:00:00', '141', 'ФМИ', '1');
 
 -- ----------------------------
 -- Table structure for messages
@@ -165,6 +165,10 @@ CREATE TABLE `participate` (
 -- ----------------------------
 -- Records of participate
 -- ----------------------------
+INSERT INTO `participate` VALUES ('5', '1', '1', '3.00');
+INSERT INTO `participate` VALUES ('5', '5', '0', '0.00');
+INSERT INTO `participate` VALUES ('5', '4', '0', '0.00');
+INSERT INTO `participate` VALUES ('5', '3', '0', '0.00');
 
 -- ----------------------------
 -- Table structure for programs
@@ -214,6 +218,14 @@ CREATE TABLE `students` (
 -- ----------------------------
 -- Records of students
 -- ----------------------------
+INSERT INTO `students` VALUES ('5', '$2y$10$ltkBLLMrZ/0bvDxHSm0ep.9S8elldg3ycO.UJlyKMcdi2dOzefrvO', 'Лазар', 'Валентиновe', 'Дилов', 'ldilov@yahoo.com', 'Бакалавър', '1', '2017-02-03 14:00:17', '4', 'София', '124122321', 'we22334', 'qrqwr', 'images/avatars/14862092271a1c152905f71ceb6f0e85cacfb32a2d.jpg', '0');
+INSERT INTO `students` VALUES ('7', '$2y$10$F2Ca7s33ajY0KDwaiAF/JeGIhXaZuuOcZ1EA69Pd43fyFv/9iw7By', 'test', 'test', 'test', 'test@abvv.bg', 'Бакалавър', '1', '2017-02-15 12:24:09', '1', 'sofis', '0886712321', '', '', 'images/avatar.jpg', '0');
+INSERT INTO `students` VALUES ('8', '$2y$10$fFwNwnE7vSOgvrNRcOdGzev00pVwh2w4tAftzU26jlEEPFNMiPLuG', 'test', 'qweqw', 'test214', 'qwrqwr@abvv.bg', 'Бакалавър', '1', '2017-02-16 00:24:37', '1', 'asdasf', '0884123111', '', '', 'images/avatar.jpg', '0');
+INSERT INTO `students` VALUES ('9', '$2y$10$29g/xzTWtGsjHvaoTsjwwOezs18WmoVk.42X/Mbk5qFJUD08CtLvS', 'Лазар', 'асдасд', 'Дилов', 'qweqwe@atat.bg', 'Бакалавър', '1', '2017-02-16 00:25:48', '1', 'qwrqwr', '0893112323', '', '', 'images/avatar.jpg', '0');
+INSERT INTO `students` VALUES ('12', '$2y$10$N/HMkqzOA6/e5rMivH.KAuE0bxkM.MbsD/xNkm20MTkta5WGUR0J6', 'gabriel', 'vesilinov', 'vasilev', 'csco.mario@abv.bg', 'Бакалавър', '2', '2017-02-21 22:28:40', '1', 'yambol', '0897640422', '', '', 'images/avatar.jpg', '0');
+INSERT INTO `students` VALUES ('13', '$2y$10$5CApNcr59u1cvemd52U6neWFXRKMPknBJZGPlR56Xgo38d7nLWk6.', 'Georgi', 'Ivanov', 'Chavdarov', 'antonchavdarov@yahoo.com', 'Бакалавър', '1', '2017-02-22 21:45:26', '1', 'Plovdiv', '0887808268', 'Frenskata', 'Chavdarov10', 'images/avatar.jpg', '0');
+INSERT INTO `students` VALUES ('14', '$2y$10$HTrMH1d4ak/vNyO/b25Ftu1GkMLqF94Hbbl3VvRRxnf3/BOiJTuG2', 'iuliq', 'shabanova', 'shabanova', 'shabanova.1993@abv.bg', 'Бакалавър', '2', '2017-02-23 22:51:56', '1', 'blagoevgrad', '0896155435', 'nnsshjajjsja', 'fif11', 'images/avatar.jpg', '0');
+INSERT INTO `students` VALUES ('15', '$2y$10$1nGkhGHkVuGsQsnAKbWqC.9FgORjh3pGymeLYkrBxvppIJuHT7Og6', 'teststudent', 'test', 'test', 'tsets@abv.bg', 'Бакалавър', '2', '2017-02-25 11:34:19', '1', 'Sofia', '08851231231', '', '', 'images/avatar.jpg', '0');
 
 -- ----------------------------
 -- Table structure for sysadmins
@@ -261,3 +273,4 @@ CREATE TABLE `teachers` (
 -- ----------------------------
 -- Records of teachers
 -- ----------------------------
+INSERT INTO `teachers` VALUES ('3', '$2y$10$ltkBLLMrZ/0bvDxHSm0ep.9S8elldg3ycO.UJlyKMcdi2dOzefrvO', 'Иван', 'Иванов', 'eastman18@yahoo.com', 'проф.', '2017-02-02 10:57:21', 'q', '08881231233', 'images/avatars/14865390575ae0c1c8a5260bc7b6648f6fbd115c35.jpg', '&lt;p&gt;3424234&lt;/p&gt;\r\n', 'https://www.facebook.com/profile.php?id=100010159622484', null, '1');
