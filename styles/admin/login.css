@@ -212,3 +212,32 @@ footer {
 	bottom: 1em;
 	width: 100%;
 }
+
+
+/* ----------------------
+----- Reponsiveness -----
+------------------------*/
+@media screen 
+and (max-width : 1200px) {
+	body {
+		height:100vh;
+		
+		margin: auto;
+	}
+	
+	footer{
+		position: relative;
+		top: 10px;
+		margin:auto;
+	}
+	
+	#login-container {
+		margin:auto;
+	}
+	
+	#login-header{
+		margin: auto;
+		padding: 0;
+		top : 50px;;
+	}
+}
