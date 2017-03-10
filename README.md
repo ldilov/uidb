@@ -37,6 +37,7 @@
   - Страница с изпити + редакция (TODO)
 - Кутия за съобщения и система за изпращане на ЛС (TODO)
 - XSS injection + SQL injection proof
+- Responsive web design
 
 ## База от данни
 
