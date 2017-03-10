@@ -44,8 +44,12 @@
 ![Database Model] (https://github.com/ldilov/uidb/blob/master/uidb-database.png?raw=true)
 
 ## Използвани технологии
-Използвани са езиците HTML/CSS/JS за frontend, PHP 5 (съвместим и със PHP 7 ) за backend
+Използвани са езиците HTML/CSS/JS за frontend, PHP 5 (съвместим и със PHP 7 ) за backend.
+
+
 В реализацията на фронт-енд частта е използван и [Bootstrap]
+
+
 Плъгини: [Qtip] и [CKEditor]
 
 ## Настройки
