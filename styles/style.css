@@ -145,7 +145,6 @@ nav ul {
 }
 
 .logo {
-  top: 0;
   float: left;
   width: 130px;
   height: 110px;
@@ -640,4 +639,55 @@ input[type="submit"]:hover
 
 form{
 	margin: 0px 0px 0px;
+}
+
+/* ----------------------
+----- Reponsiveness -----
+------------------------*/
+@media all 
+and (max-width : 1200px) {
+	.logo {
+		float: none;
+		margin: 0 auto;
+		padding: 0;
+	}
+	
+	.logo img{
+		position: relative;
+		top: 10px;
+		margin: 0 auto;
+	}
+	
+	nav{
+		  position: relative;
+		  display:block;
+		  width: auto;
+		  float: none;
+		  height: auto;
+		  margin:auto;
+	}
+	  
+	nav ul li {
+		  display:block;
+		  width: auto;
+		  float: none;
+		  margin-bottom: 10px;
+		  margin-right: 50px;
+	 }
+	  
+	.header {
+		  display:block;
+		  margin: auto;
+		  text-align: center;
+		  height: auto;
+	 }
+	 
+	.responsive-container {
+	  overflow-x:auto;
+	  width:100%;
+	}
+	
+	table {
+		width: 100%;
+	}
 }

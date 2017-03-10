@@ -1,5 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+@media only screen and (max-width: 500px) {
+   nav ul{
+	   display: block;
+   }
+}
+
 .header {
 	width: 100%;
 	background-color: #00a651;
@@ -298,6 +304,11 @@ footer .bar-wrap {
 		float:none;
 		width:auto;
 	}
+	
+	nav > ul li{
+		float: none;
+		width: auto;
+	}
 }
 
 @media screen and (max-width: 768px)  {
@@ -410,7 +421,7 @@ td input:focus{
 	background-color:#00a651;
 	vertical-align:top
 }
-@media screen and (max-width: 767px) {
+@media all and (max-width: 767px) {
 	.tg {
 		width: auto !important;
 	}
@@ -421,6 +432,63 @@ td input:focus{
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
 	}
+}
+
+@media all 
+and (max-width : 1200px) {
+  nav{
+	  position: relative;
+	  display:block;
+	  width: auto;
+	  float: none;
+	  height: auto;
+	  margin:auto;
+  }
+  
+  nav ul li {
+	  display:block;
+	  width: auto;
+	  float: none;
+	  margin:auto;
+  }
+  
+  .header {
+	  display:block;
+	  margin: auto;
+	  text-align: center;
+	  height: auto;
+  }
+  
+  #welcome {
+	  position: relative;
+	  margin: auto;
+  }
+  
+  nav ul {
+	  margin: auto;
+  }
+  table{
+	  overflow-x:auto;
+	  width: 100%;
+  }
+  
+  .responsive-container {
+	  overflow-x:auto;
+  }
+}
+
+@media all and (max-width: 1024px) {
+		.tg {
+		width: auto !important;
+	}
+	.tg col {
+		width: auto !important;
+	}
+	.tg-wrap {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
 }
 
 hr.message-inner-separator

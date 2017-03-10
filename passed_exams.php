@@ -38,5 +38,5 @@ while($row = $data->fetch_assoc()){?>
 <?php
 	$iter = $iter == 1? 0 : 1 ;
 }
-echo "</table>";
+echo "</table></div>";
 ?> 

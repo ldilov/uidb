@@ -96,3 +96,4 @@ if($data->num_rows === 0){
 }
 ?>
 </table>
+</div>

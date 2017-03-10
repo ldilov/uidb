@@ -20,7 +20,7 @@ echo 'var url = '. json_encode($url) . ';';
 echo '</script>';
 ?>
 <script src="js/calendar.js"></script>
-<div class="container">
+<div class="container responsive-container">
 <p id="demo"> </p>
     <hr>
 	<div id="calendar"></div>

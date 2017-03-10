@@ -107,7 +107,7 @@ if(isset($error)){ ?>
 	<?php } 
 			if($data->num_rows === 0){
 				echo "<div class=\"alert alert-info fade in\"> Няма налични курсове. </div>";
-				echo "</table>";
+				echo "</table></div>";
 			}
 			$index = 0;
 			while($row = $data->fetch_assoc()){
@@ -147,4 +147,5 @@ if(isset($error)){ ?>
 			}
 		}
 	?>
-</table>	
+</table>
+</div>	

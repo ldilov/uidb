@@ -2,6 +2,7 @@
 require_once('functions.php');
 verify();
 ?>
+<div class="responsive-container">
 <table class="tg">
 	<colgroup>
 		<col style="width: 8%">
@@ -50,7 +51,7 @@ if($_SESSION['type'] == 0) {
 	<?php } 
 	if($data->num_rows === 0){
 		echo "<div class=\"alert alert-info fade in\"> Към момента нямате предстоящи изпити за сесията. </div>";
-		echo "</table>";
+		echo "</table></div>";		
 	}
 	while($row = $data->fetch_assoc()){
 	?>

@@ -77,7 +77,7 @@ if(isset($error)){ ?>
 			$index++;
 		} 
 
-		echo "</table>";
+		echo "</table></div>";
 		echo "<div class=\"pagination\">";
 		for($i = 0; $i < $pages; $i++){
 			if((!isset($_GET['page']) || (isset($_GET['page']) && $_GET['page'] = 1)) && $i == 0){

@@ -91,6 +91,7 @@ function fetch_user_info($id, $type, $param = "*"){
 function build_table_header(array &$theaders){
 	$sizes = array_values($theaders);
 	$headers = array_keys($theaders);
+	echo "<div class=\"responsive-container\"> ";
 	echo "<table class=\"tg\">";
 	echo "<colgroup>";
 	foreach($sizes as $col){
