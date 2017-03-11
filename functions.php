@@ -139,7 +139,7 @@ function userRegAllowed($type){
 	if($type == 1){
 		$data = $link->query("SELECT teacher_registration_allowed FROM options");
 	} else {
-		$data = $link->query("SELECT students_registration_allowed FROM options");
+		$data = $link->query("SELECT student_registration_allowed FROM options");
 	}
 	
 	if($data)
