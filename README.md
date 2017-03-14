@@ -141,6 +141,10 @@ $itemsPerPage = 8; //колко елемента на страница да по
 
 
 ![alt](https://github.com/ldilov/uidb/blob/master/docs/chrome_2017-03-09_22-05-38.png?raw=true)
+***
+
+
+![alt](https://github.com/ldilov/uidb/blob/master/docs/firefox_2017-03-14_20-04-51.png?raw=true)
 
 [MariaDB (MySQL 5)]: http://mariadb.org
 [Bootstrap]: http://getbootstrap.com/
