@@ -218,7 +218,7 @@ footer {
 ----- Reponsiveness -----
 ------------------------*/
 @media screen 
-and (max-width : 1200px) {
+and (max-width : 1700px) {
 	body {
 		height:100vh;
 		

@@ -150,9 +150,9 @@ if(isset($error)){ ?>
 	?>
 	</div>
 			<nav class="outer-nav bottom horizontal">
-				<a href="#" class="icon-settings">Настройки</a>
+				<a href="index.php?p=settings" class="icon-settings">Настройки</a>
 				<a href="index.php?p=participate" class="icon-participate">Записване</a>
-				<a href="#" class="icon-add">Добавяне курс</a>
+				<a href="index.php?p=courses_add" class="icon-add">Добавяне курс</a>
 				<a href="#" class="icon-add-free">Добавяне свободно-избираем крус</a>
 			</nav>
 		</div><!-- /perspective -->

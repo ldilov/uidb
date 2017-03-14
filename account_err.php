@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles/login.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 </head>
 
 <body>
@@ -128,7 +129,7 @@
 			  <option value="1"> Преподавател</option>
 			  </select>
 		  </div>
-          <button type="submit" class="button button-block"/>Регистрирай ме</button>
+          <button type="submit" class="button button-block" name="submit"/>Регистрирай ме</button>
           
           </form>
 

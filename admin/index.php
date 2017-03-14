@@ -61,7 +61,15 @@ if(isset($_GET['p'])){
 				$page_title = "Записване на студенти за курсове";
 			}
 			$tpl = "participate.php";
-			break;			
+			break;	
+		case 'settings':
+			$page_title = "Настройки";
+			$tpl = "course_settings.php";
+			break;
+		case 'courses_add':
+			$page_title = "Добавяне на курс";
+			$tpl = "courses_add.php";
+			break;
 		default:
 			header('HTTP/1.1 404 Not Found');
 			exit();

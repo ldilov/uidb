@@ -20,6 +20,12 @@ function verify_admin($dir= ".", $cond = true){
 	}
 }
 
+function verify_session($dir= "."){
+	if(!isset($_SESSION['verify']) || $_SESSION['verify'] != 2 || $_SESSION['type'] != 'admin'){
+		header("location:$dir/index.php");
+	}
+}
+
 function update_table($table, array $params, $cond){
 	global $link;
 
@@ -69,7 +75,7 @@ function fetch_table_rows($table, $cond = true){
 
 function query($query, $cond = true, $op = "AND", $limit = "-1"){
 	global $link, $error_msg;
-	$fquery = (int)$limit == -1 ? "$query $op $cond" : "$query $op $cond LIMIT $limit";
+	$fquery = $limit == "-1" ? "$query $op $cond" : "$query $op $cond LIMIT $limit";
 
 	if($result = $link->query($fquery)){
 		return $result;
