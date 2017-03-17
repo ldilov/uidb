@@ -42,7 +42,7 @@
 ## База от данни
 
 Използва се релационна база от данни с СУБД: [MariaDB (MySQL 5)]
-![Database Model] (https://github.com/ldilov/uidb/blob/master/uidb-database.png?raw=true)
+![DBMODEL](https://github.com/ldilov/uidb/blob/master/uidb-database.png?raw=true)
 
 ## Използвани технологии
 Използвани са езиците HTML/CSS/JS за frontend, PHP 5 (съвместим и със PHP 7 ) за backend.
